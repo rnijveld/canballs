@@ -131,14 +131,16 @@ Line.prototype.touch = function (ball, speed, angle) {
 };
 
 Line.prototype.sound = function(mass, speed, angle) {
-    var source = audioContext.createOscillator();
-    source.type = "sine";
-    source.frequency.value = 1000 - speed;
-    source.connect(audioContext.destination);
-    source.noteOn(0);
-    setTimeout(function () {
-        source.noteOff(0);
-    }, 50);
+    if (typeof audioContext !== 'undefined' && audioContext !== null) {
+        var source = audioContext.createOscillator();
+        source.type = "sine";
+        source.frequency.value = 1000 - speed;
+        source.connect(audioContext.destination);
+        source.noteOn(0);
+        setTimeout(function () {
+            source.noteOff(0);
+        }, 50);
+    }
 };
 
 Line.prototype.inBounds = function (bbox) {

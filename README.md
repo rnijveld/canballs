@@ -8,3 +8,7 @@ A quick experiment using canvas and web audio.
 - Click on a line to turn it in to a solid line
 - Balls will bounce on solid lines
 - Click on a solid line to remove it
+
+## Browser support
+- Should run on any browser having support for canvas
+- Will only generate sounds when using a browser implementing the Web Audio API
